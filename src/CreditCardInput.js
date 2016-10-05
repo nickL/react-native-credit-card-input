@@ -43,7 +43,7 @@ export default class CreditCardInput extends Component {
     labelStyle: Text.propTypes.style,
     inputStyle: Text.propTypes.style,
     inputContainerStyle: View.propTypes.style,
-
+    scrollViewContainerStyle: View.propTypes.style,
     validColor: PropTypes.string,
     invalidColor: PropTypes.string,
     placeholderColor: PropTypes.string,
@@ -93,7 +93,7 @@ export default class CreditCardInput extends Component {
   render() {
     const {
       imageFront, imageBack, cardViewSize, inputContainerStyle, bgColor,
-      values: { number, expiry, cvc, name }, focused,
+      values: { number, expiry, cvc, name }, focused, scrollViewContainerStyle,
       requiresName, requiresCVC, requiresPostalCode,
     } = this.props;
 
@@ -114,6 +114,7 @@ export default class CreditCardInput extends Component {
             horizontal
             keyboardShouldPersistTaps
             scrollEnabled={false}
+            contentContainerStyle={scrollViewContainerStyle}
             showsHorizontalScrollIndicator={false}
             style={s.form}>
           <CCInput {...this._inputProps("number")}
